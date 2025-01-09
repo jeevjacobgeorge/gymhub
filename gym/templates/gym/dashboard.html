@@ -1,0 +1,75 @@
+{% extends 'gym/base.html' %}
+{% load static %}
+{% block title %} Gym - Dashboard{% endblock %}
+
+{% block header %}
+    Dashboard
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'gym/dashboard.css' %}">{% endblock %}
+{% block content %}
+
+    <div class="content">
+        
+        
+        <div class="header">
+            <h1>Dashboard</h1>
+            <div class="userIcon">
+                <form method="post" action="{% url 'logout' %}" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
+                        <i class="fa-solid fa-power-off" style="color: #c7c7c7;"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="statsContainer">
+            <div class="statusCards">
+                <!-- Total Customers Card -->
+                <div class="card">
+                    <div class="iconContainer">
+                        <i class="fa-solid fa-user" id="userIcon" style="color: #f95420;" width="50px" height="50px"></i>
+                    </div>
+                    <div class="stats">
+                        <p id="category">Total</p>
+                        <p id="value">{{ no_of_customers }}</p>
+                    </div>
+                </div>
+                <!-- Active Customers Card -->
+                <div class="card">
+                    <div class="iconContainer">
+                        <i class="fa-solid fa-user" id="userIcon" style="color: #f95420;" width="50px" height="50px"></i>
+                    </div>
+                    <div class="stats">
+                        <p id="category">Active</p>
+                        <p id="value">{{ no_of_active_males }}M {{ no_of_active_females }}F</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="statusCards">
+                <!-- Male Customers Card -->
+                <div class="card">
+                    <div class="iconContainer">
+                        <i class="fa-solid fa-user" id="userIcon" style="color: #f95420;" width="50px" height="50px"></i>
+                    </div>
+                    <div class="stats">
+                        <p id="category">Male</p>
+                        <p id="value">{{ no_of_male }}</p>
+                    </div>
+                </div>
+                <!-- Female Customers Card -->
+                <div class="card">
+                    <div class="iconContainer">
+                        <i class="fa-solid fa-user" id="userIcon" style="color: #f95420;" width="50px" height="50px"></i>
+                    </div>
+                    <div class="stats">
+                        <p id="category">Female</p>
+                        <p id="value">{{ no_of_female }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+{% endblock %}

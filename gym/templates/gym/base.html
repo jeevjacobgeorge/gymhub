@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Gym Hub - HomePage{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'gym/base.css' %}">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMhvb3uaYghzTMRdMYYsdq2HKE/I0Zp8K6r5fq" crossorigin="anonymous">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <div class="container">
+        <!-- Navbar -->
+        <div class="navbar">
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="logo">
+                <img src="{% static 'gym/assets/images/Logo.svg' %}" alt="Logo">
+            </div>
+            <nav id="menu">
+                <a href="/" >
+                    <li><i class="fa-solid fa-house" ></i>Dashboard</li>
+                </a>
+                <a href="/add">
+                    <li><i class="fa-solid fa-file" ></i>New Customer</li>
+                </a>
+                <a href="{% url 'dedicated' %}">
+                    <li><i class="fa-solid fa-search" ></i>Find Customer</li>
+                </a>
+                <a href="/fees">
+                    <li><i class="fa-solid fa-circle-info" ></i>Fee Details</li>
+                </a>
+            </nav>
+        </div>
+        
+        <!-- Content Section -->
+
+            
+            {% block content %}
+            <!-- Default content -->
+            {% endblock %}
+        
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+    <script src="https://kit.fontawesome.com/570d6d8240.js" crossorigin="anonymous"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+.outerContainer{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin:30px 50px;
+    color:white;
+}
+
+.outerContainer h2{
+    color:#E95D18;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 15px 0px 30px;
+}
+.userButtonArea{
+    display:flex;
+    justify-content:space-between;
+}
+
+.buttonSection{
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    align-items:center;
+}
+
+.buttonSection a{
+    text-decoration:none;
+}
+
+.buttonSection button{
+    cursor:pointer;
+    padding:10px;
+    width:120px;
+    border:none;
+    background: #E95D18;
+    color:white;
+    font-size:15px;
+    border-radius:10px;
+}
+
+.buttonSection button:hover{
+    background-color:white;
+    color:#E95D18;
+    transition:0.5s;
+}
+
+.userSection{
+    max-width:100%;
+    width:500px;
+    display:flex;
+    gap:50px;
+}
+
+.userImage{
+    padding: 35px 40px 35px 40px;
+    width:auto;
+    font-size:50px;
+    background-color:#9A9A9A;
+    border-radius: 50%;
+    color:#34373b;
+}
+
+
+.rowSection{
+    display:flex;
+    gap:40px;
+    justify-content: space-around;
+}
+@media (max-width: 768px) {
+
+    .userImage{
+        display: none;
+    }
+    .outerContainer{
+        margin:30px 20px;
+    }
+    .buttonSection{
+        display: block;
+
+    }
+    .editButton{
+        margin-bottom:20px;
+    }
+    .rowSection{
+        display: block;
+    }
+}

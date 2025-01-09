@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+
+/* Current month highlight */
+.current-month {
+    background-color: #f46a0e; /* Highlight color */
+    color: rgb(0, 0, 0); /* Contrast color */
+}
+
+/* Navbar start */
+
+
+
+/* Navbar ends */
+
+/* Content area */
+
+
+
+table{
+    color:#17191C
+}
+
+/* Outer container for the page */
+.outerContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin: 30px 50px;
+}
+
+/* Header and buttons */
+.headerButtons {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+}
+
+/* Filter section */
+.filters {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.filters input {
+    background-color: #5a5a5a;
+    border: none;
+    padding-left: 20px;
+    border-radius: 8px;
+    color: white;
+    width: 350px;
+}
+
+.filters input::placeholder {
+    color: white;
+}
+
+.filters select, option {
+    background-color: #5a5a5a;
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 8px;
+    color: white;
+}
+
+.filters option {
+    background-color: white;
+    color: black;
+}
+
+/* Search form */
+.searchForm {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Add Alumni button */
+.addAlumniButton {
+    width: 130px;
+    padding: 15px;
+    background-color: #E95D18;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    margin-left: auto;
+    border: 1px solid #E95D18;
+}
+
+.addAlumniButton:hover {
+    background-color: white;
+    color: #E95D18;
+    border: 1px solid #E95D18;
+    transition-duration: 0.5s;
+}
+
+/* Inner container styling */
+.innerContainer {
+    margin-top: -20px;
+}
+
+/* User card for each feed item */
+.userCard {
+    background-color: #17191C;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    padding-bottom: 10px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+}
+
+.activity i {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    margin: 22px 0px 22px -30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+/* Table container */
+.table-container {
+    display: flex;
+    overflow: hidden;
+}
+
+/* Fixed column styling for table */
+.fixed-column  {
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+}
+
+.name  {
+    width: 280px;
+}
+
+.name a {
+    color: skyblue;
+}
+
+.name a:hover {
+    color: #E95D18;
+    transition: ease-in;
+    transition-duration: 0.5s;
+}
+
+/* Scrollable columns (dynamic content) */
+.scrollable-columns {
+    display: flex;
+    overflow-x: auto;
+    width: calc(100% - 300px);
+}
+
+.scrollable-columns td {
+    background-color: #212529;
+    color: white;
+}
+
+.scrollable-columns th, td {
+    width: 85px;
+}
+
+.last-column {
+    border-left: 1px solid #ddd;
+    margin-left: 5px;
+}
+
+/* Action buttons */
+#action-buttons a {
+    color: lightblue;
+}
+
+#action-buttons a:hover {
+    color: white;
+    transition: ease-in;
+    transition-duration: 0.5s;
+}
+
+/* Table styling */
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+td {
+    color: white;
+}
+
+/* Table button styles */
+.tablebutton1, .tablebutton2 {
+    background-color: rgb(253, 250, 250);
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 1px 12px;
+}
+
+.tablebutton1:hover {
+    transition-duration: 0.2s;
+    background-color: #f95420;
+    color: white;
+}
+
+.tablebutton2:hover {
+    transition-duration: 0.4s;
+    background-color: green;
+    color: white;
+}
+@media (max-width: 768px) {
+    .outerContainer {
+        margin: 2px;
+        padding:5px;
+    }
+    input{
+        width: 97%;
+    }
+    .filters{
+        gap:10px;
+        
+    }
+    .outerContainer{
+        gap:25px;
+    }
+    .fixed-column{
+        margin-right:2px
+    }
+    .last-column{
+        display: none;
+    }
+    .name{
+        width:50px;
+    }
+    .id{
+        width:10px;
+    }
+    .scrollable-columns{
+        width:100%;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 2px 5px;
+        text-align: center;
+        font-size: smaller;
+    }
+    .name_d{
+        width: 300px;
+    }
+}

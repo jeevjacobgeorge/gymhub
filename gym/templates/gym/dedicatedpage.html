@@ -1,0 +1,120 @@
+{% extends "gym/base.html" %}
+{% load static %}
+
+{% block title %} Gym - Users{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'gym/feeDetails.css' %}">
+{% endblock %}
+
+{% block content %}
+    
+        <div class="content">
+            <div class="header">
+                <h1>Customer Search</h1>
+                <div class="userIcon">
+                    <form method="post" action="{% url 'logout' %}" style="display: inline;">
+                        {% csrf_token %}
+                        <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
+                            <i class="fa-solid fa-power-off" style="color: #c7c7c7;"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <hr style="color:#9A9A9A">
+            <div class="outerContainer">
+                <div class="headerButtons">
+                    <form method="GET" class="searchForm" id="searchForm">
+                        <div class="filters">
+                            <input type="text" autocomplete="off" placeholder="Search by Name / Id / Phone number" id="customerSearch" class="customerSearch" value="">
+                        </div>
+                    </form> 
+                </div>
+                <div class="table-container">
+                    <table class="last-column">
+                    </table>
+                    <table class="fixed-column">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th class="name_d">Name</th>
+                            </tr>
+                        </thead>
+                        <tbody id="customer-data">
+                            <!-- Customer data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+
+{% block extra_js %}
+    <script src="https://kit.fontawesome.com/570d6d8240.js" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to fetch and display data
+            function fetchAndDisplayData() {
+                const gender = 'select';
+                const searchQuery = document.getElementById('customerSearch').value.trim();
+                const url = new URL("{% url 'feeDetails' %}", window.location.origin);
+
+                if (gender !== 'select') {
+                    url.searchParams.set('gender', gender);
+                }
+                if (searchQuery) {
+                    url.searchParams.set('search', searchQuery);
+                }
+
+                if (searchQuery) {  // Only fetch if there's a filter applied
+                    fetch(url, {
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        const customerData = document.getElementById('customer-data');
+                        
+
+                        customerData.innerHTML = '';
+                        
+
+                        if (data.customers.length == 0) {
+                            let noData = document.createElement('tr');
+                            noData.innerHTML = '<td colspan="2">No data found</td>';
+                            customerData.appendChild(noData);
+                            return;
+                        }
+
+                        data.customers.forEach(customerDataObj => {
+                            let customerRow = document.createElement('tr');
+                            customerRow.innerHTML = `
+                                <td>${customerDataObj.customer.admission_number}</td>
+                                <td class="name">
+                                    <a href="/profile/${customerDataObj.customer.id}/">${customerDataObj.customer.name}</a>
+                                </td>
+                            `;
+                            customerData.appendChild(customerRow);
+                        });
+                    })
+                    .catch(error => console.error('Error fetching fee details:', error));
+                }
+            }
+
+            // Handle filter and search changes
+            const searchForm = document.getElementById('searchForm');
+            searchForm.addEventListener('change', function() {
+                fetchAndDisplayData();
+            });
+
+            // Handle real-time search input
+            const searchInput = document.getElementById('customerSearch');
+            searchInput.addEventListener('input', function() {
+                fetchAndDisplayData();
+            });
+        });
+    </script>
+{% endblock %}

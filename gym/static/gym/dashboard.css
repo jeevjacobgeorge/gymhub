@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+
+
+.statsContainer {
+    padding: 5px;
+    
+}
+
+.statusCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.card {
+    border-radius: 15px;
+    padding: 20px;
+    background-color: #17191C;
+    height: 80px;
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    padding-top: 20px;
+    margin: 10px; /* Adds margin between cards */
+}
+
+.iconContainer {
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 70px;
+    width: 70px;
+    background-color: #FFD6CA;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconContainer #userIcon {
+    font-size: 28px;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.stats #value {
+    color: white;
+    font-size: 30px;
+
+}
+
+.stats #category {
+    font-size: 18px;
+    color: #F95420;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    /* Larger screens */
+    .container {
+        flex-direction: row;
+
+    }
+
+    .navbar {
+        width: 18%;
+    }
+
+    .content {
+        width: 82%;
+    }
+    
+    /* .statusCards {
+        justify-content: space-evenly;
+        flex-wrap: nowrap;
+    } */
+
+    .iconContainer {
+        height: 83.5px;
+        width: 83.5px;
+    }
+
+    .iconContainer #userIcon {
+        font-size: 36px;
+    }
+
+    .stats #value {
+        margin-inline: 10px;
+        font-size: 23px;
+    }
+
+    .stats #category {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Small screens */
+    .navbar nav li {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .header h1 {
+        font-size: 20px;
+    }
+
+    .stats #value {
+        font-size: 25px;
+    }
+
+    .stats #category {
+        font-size: 16px;
+    }
+
+    .iconContainer {
+        height: 60px;
+        width: 60px;
+    }
+
+    .iconContainer #userIcon {
+        font-size: 24px;
+    }
+}
+
+/* Make navbar responsive with hamburger menu */
+.hamburger {
+    display: none;
+    color: #9A9A9A;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Hide menu by default for smaller screens */
+#menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+    .content{
+        padding:1px;
+    };
+    .navbar {
+        
+        padding-right: 0px;
+        
+        display: flex;
+          
+    }
+    .active {
+        width: 75%;
+        margin-inline: auto;
+    }
+    .stats{
+        display: flex;
+        gap:20px;
+        align-items: space-between;
+        height: 60px;
+    }
+    .stats #value {
+        font-size: 20px;
+    }
+    .logo img {
+        display: none;
+        /* width: 40px;
+        margin-inline: 60px; */
+        
+    }
+    .hamburger {
+        display: block;
+    }
+
+    #menu {
+        display: none;
+    }
+
+    /* Show menu when active class is added */
+    #menu.active {
+        display: flex;
+    }
+
+    /* Adjust status cards for smaller screens */
+    .statusCards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 80%;
+        height: 20%;
+        margin-top:5px;
+    }
+}

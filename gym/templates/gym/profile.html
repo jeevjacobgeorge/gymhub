@@ -1,0 +1,78 @@
+{% extends "gym/base.html" %}
+{% load static %}
+
+{% block title %}User Profile -  Gym{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'gym/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+    
+
+    <div class="content">
+        <div class="header">
+            <h1>Profile</h1>
+            <div class="userIcon">
+                <form method="post" action="{% url 'logout' %}" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
+                        <i class="fa-solid fa-power-off" style="color: #c7c7c7;"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <hr style="color:#9A9A9A">
+
+        <div class="outerContainer">
+            <section class="userButtonArea">
+                <div class="userSection">
+                    <div class="userImage">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="user">
+                        <h2><b>{{ name }}</b></h2>
+                        <h4> Age: {{ age }}, {{ gender }}</h4>
+                    </div>
+                </div>
+                <div class="buttonSection">
+                    <a href="/edit/{{ id }}"><button class="editButton">Edit Details</button></a>
+                    <a href="/pay_fees/{{ id }}"><button class="payFeesButton">Pay Fees</button></a>
+                </div>
+            </section>
+
+            <section class="rowSection">
+                <div class="contactSection">
+                    <h2>Contact Information</h2>
+                    <div class="contact">
+                        <h4><b>Email:</b> {{ email }}</h4>
+                        <h4><b>Phone:</b> {{ phone }}</h4>
+                        <h4><b>Blood Group:</b> {{ bloodGroup }}</h4>
+                    </div>
+                </div>
+
+                <div class="physicalInformation">
+                    <h2>Physical Information</h2>
+                    <div class="physical">
+                        <h4><b>Height:</b> {{ height }} cm</h4>
+                        <h4><b>Weight:</b> {{ weight }} kg</h4>
+                        <h4><b>BMI:</b> {{ bmi }}</h4>
+                    </div>
+                </div>
+
+                <div class="otherDetails">
+                    <h2>Other Details</h2>
+                    <div class="other">
+                        <h4><b>Date of Joining:</b> {{ doj }}</h4>
+                        <h4><b>Health:</b> {{ health }}</h4>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="https://kit.fontawesome.com/570d6d8240.js" crossorigin="anonymous"></script>
+{% endblock %}

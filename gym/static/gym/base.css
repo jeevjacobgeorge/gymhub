@@ -1,0 +1,348 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* Base Styles */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: "Inter", sans-serif;
+    background-color: #212529; /* Overall background color */
+    color: #FFFFFF;
+}
+
+/* Container Layout */
+.container {
+    display: flex;
+    flex-direction: column; /* Default to column layout */
+    min-height: 100vh; /* Full height */
+    background-color: #26292E;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #26292E;
+    box-shadow: 0 15px 10px rgba(0, 0, 0, 0.35);
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+}
+
+/* Navbar Navigation */
+.navbar nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.navbar nav li {
+    list-style-type: none;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.navbar nav a {
+    color: #9A9A9A;
+    text-decoration: none;
+}
+
+.navbar nav a:hover > li {
+    font-size: 20px;
+    color: #E95D18;
+    transition: 0.2s;
+}
+
+.navbar nav li i {
+    margin-right: 10px;
+}
+
+.logo img {
+    width: 170px;
+    height: auto;
+}
+
+/* Content Section */
+.content {
+    width: 100%;
+    background-color: #212529;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.header h1 {
+    color: #E95D18;
+    font-size: 24px;
+}
+
+/* User Icon */
+.userIcon {
+    margin-top: 10px;
+    height: 25px;
+    border-radius: 50%;
+    padding: 10px 15px;
+    background-color: #161b20;
+}
+
+/* Stats Cards */
+.statsContainer {
+    padding: 5px;
+}
+
+.statusCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.card {
+    border-radius: 15px;
+    padding: 20px;
+    background-color: #17191C;
+    height: 80px;
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    padding-top: 20px;
+    margin: 10px;
+}
+
+.iconContainer {
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 70px;
+    width: 70px;
+    background-color: #FFD6CA;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconContainer #userIcon {
+    font-size: 28px;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.stats #value {
+    color: white;
+    font-size: 30px;
+}
+
+.stats #category {
+    font-size: 18px;
+    color: #F95420;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row; /* Switch to row layout for larger screens */
+    }
+
+    .navbar {
+        width: 18%;
+    }
+
+    .content {
+        width: 82%;
+    }
+
+    .iconContainer {
+        height: 83.5px;
+        width: 83.5px;
+    }
+
+    .iconContainer #userIcon {
+        font-size: 36px;
+    }
+
+    .stats #value {
+        margin-inline: 10px;
+        font-size: 23px;
+    }
+
+    .stats #category {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar nav li {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .header h1 {
+        font-size: 20px;
+    }
+
+    .stats #value {
+        font-size: 25px;
+    }
+
+    .stats #category {
+        font-size: 16px;
+    }
+
+    .iconContainer {
+        height: 60px;
+        width: 60px;
+    }
+
+    .iconContainer #userIcon {
+        font-size: 24px;
+    }
+}
+
+/* Navbar Responsive Behavior (Hamburger Menu) */
+.hamburger {
+    display: none;
+    color: #9A9A9A;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .navbar {
+        padding-right: 0px;
+        display: flex;
+    }
+
+    .logo img {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    #menu {
+        display: none;
+    }
+
+    #menu.active {
+        display: flex;
+    }
+
+    /* Adjust Status Cards */
+    .statusCards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 80%;
+        height: 20%;
+        margin-top: 5px;
+    }
+}
+
+/* General Styling for Links in Navbar */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Styles for Forms and Buttons in Forms */
+
+
+button:hover, .submitForm:hover {
+    background-color: #e95d18;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #f4440e;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #e95d18;
+}
+#menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@media (max-width: 768px) {
+    .content{
+        padding:1px;
+    };
+    .navbar {
+        
+        padding-right: 0px;
+        
+        display: flex;
+          
+    }
+    .active {
+        width: 75%;
+        margin-inline: auto;
+    }
+    .stats{
+        display: flex;
+        gap:20px;
+        align-items: space-between;
+        height: 60px;
+    }
+    .stats #value {
+        font-size: 20px;
+    }
+    .logo img {
+        display: none;
+        /* width: 40px;
+        margin-inline: 60px; */
+        
+    }
+    .hamburger {
+        display: block;
+    }
+
+    #menu {
+        display: none;
+    }
+
+    /* Show menu when active class is added */
+    #menu.active {
+        display: flex;
+    }
+
+    /* Adjust status cards for smaller screens */
+    .statusCards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 80%;
+        height: 20%;
+        margin-top:5px;
+    }
+}
+
