@@ -16,7 +16,7 @@ body{
 /* Navbar start */
 
 .navbar{
-    width:18%;
+    width:21%;
     background-color:#26292E;
     box-shadow: 0 15px 10px rgba(0, 0, 0, 0.35);
     position: relative;
@@ -56,10 +56,12 @@ body{
     margin-right:20px;
 }
 
-.logo img{
-    width:180px;
-    height:auto;
+.logo img {
+    width: 170px;
+    height: auto;
+    border-radius: 42px;
 }
+
 
 /* Navbar ends */
 
