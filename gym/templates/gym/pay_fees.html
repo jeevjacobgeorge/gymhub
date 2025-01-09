@@ -70,9 +70,18 @@
                                 <label for="month">Select Starting Month:</label>
                                 <select name="month" id="month" required>
                                     <option value="">--Select--</option>
-                                    {% for month in months %}
-                                        <option value="{{ month }}">{{ month }}</option>
-                                    {% endfor %}
+                                    <option value="January">January</option>
+                                    <option value="February">February</option>
+                                    <option value="March">March</option>
+                                    <option value="April">April</option>
+                                    <option value="May">May</option>
+                                    <option value="June">June</option>
+                                    <option value="July">July</option>
+                                    <option value="August">August</option>
+                                    <option value="September">September</option>
+                                    <option value="October">October</option>
+                                    <option value="November">November</option>
+                                    <option value="December">December</option>
                                 </select>
                             </div>
                             <div class="formGroup">
@@ -95,27 +104,23 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const today = new Date();
-            const dopField = document.getElementById('dop');
-            dopField.value = today.toISOString().split('T')[0]; // Set today's date
+            document.getElementById('dop').value = today.toISOString().split('T')[0];
 
+            // Automatically select the current month in the month dropdown
             const currentMonth = today.toLocaleString('default', { month: 'long' });
-            const monthSelect = document.getElementById('month');
-            monthSelect.value = currentMonth; // Set current month in the dropdown
-
-            const yearSelect = document.getElementById('year');
-            yearSelect.value = today.getFullYear(); // Set current year in the dropdown
+            // document.querySelector(`#month option[value="${currentMonth}"]`).selected = true;
         });
 
         let categorySelect = document.getElementById('category');
         let amountField = document.getElementById('amount');
 
         categorySelect.addEventListener('change', function () {
-            let categoryId = categorySelect.value;
+            let categoryName = categorySelect.value;
 
             // Fetch the fee from the server
-            fetch(`/get_fees/${categoryId}/`)
+            fetch(`/get_fees/${categoryName}/`)
                 .then(response => response.json())
                 .then(data => {
                     amountField.value = data.fee;

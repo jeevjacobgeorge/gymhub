@@ -472,7 +472,7 @@ def pay_fees(request, customer_id):
     context = {
         'customer': customer,
         'years': years,  # Pass the list of years to the template
-        'categories': categories
+        'categories': categories,
     }
     
     return render(request, 'gym/pay_fees.html', context)
