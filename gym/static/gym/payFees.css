@@ -16,7 +16,7 @@ body{
 /* Navbar start */
 
 .navbar{
-    width:21%;
+    width:18%;
     background-color:#26292E;
     box-shadow: 0 15px 10px rgba(0, 0, 0, 0.35);
     position: relative;
@@ -57,11 +57,15 @@ body{
 }
 
 .logo img {
-    width: 170px;
+    width: 150px;
     height: auto;
     border-radius: 42px;
 }
-
+.logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 /* Navbar ends */
 

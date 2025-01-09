@@ -63,6 +63,14 @@ body {
     width: 170px;
     height: auto;
     border-radius: 42px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Content Section */
@@ -157,7 +165,7 @@ body {
     }
 
     .navbar {
-        width: 21%;
+        width: 18%;
     }
 
     .content {
